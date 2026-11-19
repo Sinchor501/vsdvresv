@@ -1,0 +1,184 @@
+/* Стили сайта «Учим HTML и CSS» */
+
+:root {
+  --main: #3b6fd8;
+  --main-dark: #274a9c;
+  --accent: #ffb703;
+  --bg: #f4f7fc;
+  --text: #1f2937;
+  --card: #ffffff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* ---------- Шапка и меню ---------- */
+header {
+  background: linear-gradient(135deg, var(--main), var(--main-dark));
+  color: #fff;
+  text-align: center;
+  padding: 56px 20px 40px;
+}
+header h1 { margin: 0 0 10px; font-size: 2.4rem; }
+header p { margin: 0 auto; max-width: 600px; font-size: 1.15rem; opacity: .95; }
+
+nav {
+  position: sticky;
+  top: 0;
+  background: var(--main-dark);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: .95rem;
+}
+nav a:hover { background: var(--accent); color: #222; }
+
+/* ---------- Основное содержимое ---------- */
+main { max-width: 900px; margin: 30px auto; padding: 0 16px; }
+section {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 26px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.07);
+}
+h2 {
+  margin-top: 0;
+  color: var(--main-dark);
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 6px;
+  display: inline-block;
+}
+h3 { color: var(--main); }
+
+code {
+  background: #eef2fb;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: Consolas, monospace;
+  color: #b4235a;
+}
+pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: .92rem;
+  line-height: 1.5;
+}
+pre code { background: none; color: inherit; padding: 0; }
+
+.tip {
+  background: #fff8e1;
+  border-left: 5px solid var(--accent);
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin: 16px 0;
+}
+
+/* ---------- Таблицы ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: .97rem;
+}
+caption { font-weight: bold; margin-bottom: 8px; text-align: left; color: var(--main-dark); }
+th, td { border: 1px solid #cfd8ea; padding: 9px 12px; text-align: left; }
+th { background: var(--main); color: #fff; }
+tr:nth-child(even) td { background: #f3f6fd; }
+tr:hover td { background: #e3ebfb; }
+
+/* ---------- Форма ---------- */
+form label { display: block; margin: 12px 0 4px; font-weight: 600; }
+input[type="text"], input[type="email"], select, textarea {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #b8c4de;
+  border-radius: 6px;
+  font: inherit;
+}
+button {
+  background: var(--main);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 12px;
+}
+button:hover { background: var(--main-dark); }
+
+/* ---------- Мини-редактор ---------- */
+.editor { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.editor-inputs { display: flex; flex-direction: column; }
+.editor-inputs label { margin: 0 0 4px; font-weight: 700; color: var(--main-dark); }
+.editor-inputs label + textarea { margin-bottom: 10px; }
+.editor textarea { height: 160px; font-family: Consolas, monospace; font-size: .9rem; }
+.editor iframe { width: 100%; height: 100%; min-height: 340px; border: 1px solid #b8c4de; border-radius: 6px; background: #fff; }
+@media (max-width: 700px) {
+  .editor { grid-template-columns: 1fr; }
+  .editor iframe { min-height: 240px; }
+  header h1 { font-size: 1.8rem; }
+}
+
+figure { text-align: center; margin: 16px 0; }
+figcaption { font-size: .9rem; color: #64748b; }
+
+footer { text-align: center; padding: 24px; color: #64748b; font-size: .9rem; }
+
+/* ---------- Результаты формы и теста ---------- */
+.result-ok { font-weight: 600; color: #15803d; }
+.result-quiz { font-weight: 600; }
+.result-quiz.good { color: #15803d; }
+.result-quiz.warn { color: #b45309; }
+
+/* ---------- Пример кнопки с :hover ---------- */
+.demo-btn {
+  background: #e63946;
+  color: #fff;
+  border-radius: 20px;
+  transition: background .25s;
+}
+.demo-btn:hover { background: #9d0208; }
+
+/* ---------- Образцы цветов ---------- */
+.swatches { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+.swatches span {
+  padding: 14px 18px;
+  border-radius: 8px;
+  color: #fff;
+  font-family: Consolas, monospace;
+  font-weight: 700;
+}
+.sw-blue   { background: #3b6fd8; }
+.sw-orange { background: #ffb703; color: #222 !important; }
+.sw-green  { background: #2a9d8f; }
+.sw-red    { background: #e63946; }
+.sw-dark   { background: #1e293b; }
+
+/* ---------- Наглядная блочная модель ---------- */
+.bm { padding: 16px; text-align: center; font-weight: 600; border-radius: 4px; }
+.bm > span { display: block; margin-bottom: 8px; font-size: .9rem; }
+.bm-margin  { background: #fde1c8; max-width: 440px; margin: 16px auto; }
+.bm-border  { background: #c9dafc; border: 3px dashed var(--main); }
+.bm-padding { background: #d3f2d9; }
+.bm-content { background: #fff; border: 1px solid #94a3b8; padding: 10px; font-weight: 400; }

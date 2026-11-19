@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Учебный сайт: как школьнику выучить HTML с нуля">
+  <title>Учим HTML — сайт для школьников</title>
+  <style>
+    :root {
+      --main: #3b6fd8;
+      --main-dark: #274a9c;
+      --accent: #ffb703;
+      --bg: #f4f7fc;
+      --text: #1f2937;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    /* ---------- Шапка и меню ---------- */
+    header {
+      background: linear-gradient(135deg, var(--main), var(--main-dark));
+      color: #fff;
+      text-align: center;
+      padding: 56px 20px 40px;
+    }
+    header h1 { margin: 0 0 10px; font-size: 2.4rem; }
+    header p { margin: 0 auto; max-width: 600px; font-size: 1.15rem; opacity: .95; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--main-dark);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,.2);
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: .95rem;
+    }
+    nav a:hover { background: var(--accent); color: #222; }
+
+    /* ---------- Основное содержимое ---------- */
+    main { max-width: 900px; margin: 30px auto; padding: 0 16px; }
+    section {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 26px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    }
+    h2 {
+      margin-top: 0;
+      color: var(--main-dark);
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 6px;
+      display: inline-block;
+    }
+    h3 { color: var(--main); }
+
+    code {
+      background: #eef2fb;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+      color: #b4235a;
+    }
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: .92rem;
+      line-height: 1.5;
+    }
+    pre code { background: none; color: inherit; padding: 0; }
+
+    .tip {
+      background: #fff8e1;
+      border-left: 5px solid var(--accent);
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin: 16px 0;
+    }
+
+    /* ---------- Таблицы ---------- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: .97rem;
+    }
+    caption { font-weight: bold; margin-bottom: 8px; text-align: left; color: var(--main-dark); }
+    th, td { border: 1px solid #cfd8ea; padding: 9px 12px; text-align: left; }
+    th { background: var(--main); color: #fff; }
+    tr:nth-child(even) td { background: #f3f6fd; }
+    tr:hover td { background: #e3ebfb; }
+
+    /* ---------- Форма ---------- */
+    form label { display: block; margin: 12px 0 4px; font-weight: 600; }
+    input[type="text"], input[type="email"], select, textarea {
+      width: 100%;
+      padding: 9px;
+      border: 1px solid #b8c4de;
+      border-radius: 6px;
+      font: inherit;
+    }
+    button {
+      background: var(--main);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+    button:hover { background: var(--main-dark); }
+
+    /* ---------- Мини-редактор ---------- */
+    .editor { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .editor textarea { height: 230px; font-family: Consolas, monospace; font-size: .9rem; }
+    .editor iframe { width: 100%; height: 230px; border: 1px solid #b8c4de; border-radius: 6px; background: #fff; }
+    @media (max-width: 700px) { .editor { grid-template-columns: 1fr; } header h1 { font-size: 1.8rem; } }
+
+    figure { text-align: center; margin: 16px 0; }
+    figcaption { font-size: .9rem; color: #64748b; }
+
+    footer { text-align: center; padding: 24px; color: #64748b; font-size: .9rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌐 Учим HTML с нуля</h1>
+    <p>Простой путь для школьника: от первого тега до своей собственной веб-страницы</p>
+  </header>
+
+  <nav>
+    <a href="#intro">Что такое HTML</a>
+    <a href="#start">Первая страница</a>
+    <a href="#tags">Основные теги</a>
+    <a href="#lists">Списки</a>
+    <a href="#table">Таблицы</a>
+    <a href="#forms">Формы</a>
+    <a href="#practice">Практика</a>
+    <a href="#plan">План обучения</a>
+    <a href="#quiz">Тест</a>
+  </nav>
+
+  <main>
+
+    <!-- ===== 1. Введение ===== -->
+    <section id="intro">
+      <h2>Что такое HTML?</h2>
+      <p>
+        <strong>HTML</strong> (HyperText Markup Language — «язык гипертекстовой разметки») — это язык,
+        на котором создаются все сайты в интернете. Он <em>не</em> является языком программирования:
+        в нём нет вычислений и условий. HTML просто <strong>говорит браузеру, что где находится на странице</strong>:
+        вот заголовок, вот абзац, вот картинка, а вот ссылка.
+      </p>
+      <p>Чтобы начать, понадобится совсем немного:</p>
+      <ul>
+        <li>компьютер (подойдёт и ноутбук школьный);</li>
+        <li>любой браузер — Chrome, Firefox, Edge или Safari;</li>
+        <li>текстовый редактор — например, Блокнот или бесплатный <em>Visual Studio Code</em>;</li>
+        <li>немного терпения и любопытства 🙂</li>
+      </ul>
+      <div class="tip">
+        💡 <strong>Совет:</strong> HTML — самый простой первый шаг в мир создания сайтов.
+        Уже через час вы сможете сделать свою первую страницу!
+      </div>
+    </section>
+
+    <!-- ===== 2. Первая страница ===== -->
+    <section id="start">
+      <h2>Твоя первая страница</h2>
+      <p>Любая HTML-страница имеет одинаковый «скелет». Скопируй этот код в Блокнот:</p>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Моя первая страница&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Привет, мир!&lt;/h1&gt;
+  &lt;p&gt;Это моя первая веб-страница.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <h3>Как запустить?</h3>
+      <ol>
+        <li>Сохрани файл с именем <code>index.html</code> (тип файла — «Все файлы», кодировка UTF-8).</li>
+        <li>Дважды щёлкни по файлу — он откроется в браузере.</li>
+        <li>Меняй текст в Блокноте, сохраняй и обновляй страницу клавишей <code>F5</code>.</li>
+      </ol>
+
+      <h3>Из чего состоит скелет?</h3>
+      <table>
+        <caption>Части HTML-документа</caption>
+        <thead>
+          <tr><th>Тег</th><th>Для чего нужен</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>&lt;!DOCTYPE html&gt;</code></td><td>Сообщает браузеру, что это современная HTML-страница</td></tr>
+          <tr><td><code>&lt;html&gt;</code></td><td>Корневой тег — внутри него находится вся страница</td></tr>
+          <tr><td><code>&lt;head&gt;</code></td><td>Служебная информация: название вкладки, кодировка, стили</td></tr>
+          <tr><td><code>&lt;title&gt;</code></td><td>Название страницы во вкладке браузера</td></tr>
+          <tr><td><code>&lt;body&gt;</code></td><td>Всё, что видит посетитель: текст, картинки, ссылки</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===== 3. Основные теги ===== -->
+    <section id="tags">
+      <h2>Основные теги</h2>
+      <p>
+        <strong>Тег</strong> — это команда в угловых скобках. Большинство тегов бывают парными:
+        есть открывающий <code>&lt;p&gt;</code> и закрывающий <code>&lt;/p&gt;</code>
+        (со слэшем). Между ними находится содержимое.
+      </p>
+
+      <table>
+        <caption>Самые нужные теги для начинающих</caption>
+        <thead>
+          <tr><th>Тег</th><th>Что делает</th><th>Пример</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>&lt;h1&gt;…&lt;h6&gt;</code></td><td>Заголовки (h1 — самый главный)</td><td><code>&lt;h1&gt;Заголовок&lt;/h1&gt;</code></td></tr>
+          <tr><td><code>&lt;p&gt;</code></td><td>Абзац текста</td><td><code>&lt;p&gt;Текст&lt;/p&gt;</code></td></tr>
+          <tr><td><code>&lt;strong&gt;</code></td><td>Жирный (важный) текст</td><td><code>&lt;strong&gt;важно&lt;/strong&gt;</code></td></tr>
+          <tr><td><code>&lt;em&gt;</code></td><td>Курсив (выделение)</td><td><code>&lt;em&gt;ударение&lt;/em&gt;</code></td></tr>
+          <tr><td><code>&lt;br&gt;</code></td><td>Перенос строки</td><td><code>строка 1&lt;br&gt;строка 2</code></td></tr>
+          <tr><td><code>&lt;hr&gt;</code></td><td>Горизонтальная линия</td><td><code>&lt;hr&gt;</code></td></tr>
+          <tr><td><code>&lt;a&gt;</code></td><td>Ссылка</td><td><code>&lt;a href="https://example.com"&gt;Сайт&lt;/a&gt;</code></td></tr>
+          <tr><td><code>&lt;img&gt;</code></td><td>Картинка</td><td><code>&lt;img src="cat.jpg" alt="Кот"&gt;</code></td></tr>
+          <tr><td><code>&lt;div&gt;</code></td><td>Блок-контейнер для группировки</td><td><code>&lt;div&gt;…&lt;/div&gt;</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Ссылки и картинки</h3>
+      <p>Ссылка состоит из адреса (<code>href</code>) и текста, на который нужно нажать:</p>
+      <pre><code>&lt;a href="https://ru.wikipedia.org" target="_blank"&gt;Открыть Википедию&lt;/a&gt;</code></pre>
+      <p>Пример живой ссылки: <a href="https://developer.mozilla.org/ru/docs/Learn" target="_blank" rel="noopener">Учебник MDN по веб-разработке</a>.</p>
+
+      <p>Картинка вставляется тегом <code>&lt;img&gt;</code>. Атрибут <code>alt</code> — описание, которое показывается, если картинка не загрузилась:</p>
+      <figure>
+        <svg width="220" height="110" viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Пример картинки">
+          <rect width="220" height="110" rx="12" fill="#3b6fd8"/>
+          <text x="110" y="62" font-size="34" font-family="Arial" fill="#fff" text-anchor="middle">&lt;img&gt;</text>
+        </svg>
+        <figcaption>Подпись к картинке создаётся тегом &lt;figcaption&gt;</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===== 4. Списки ===== -->
+    <section id="lists">
+      <h2>Списки</h2>
+      <p>Списки помогают упорядочить информацию. Бывают два вида:</p>
+
+      <h3>Маркированный список (<code>&lt;ul&gt;</code>)</h3>
+      <pre><code>&lt;ul&gt;
+  &lt;li&gt;Яблоко&lt;/li&gt;
+  &lt;li&gt;Груша&lt;/li&gt;
+  &lt;li&gt;Банан&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      <p>Результат:</p>
+      <ul>
+        <li>Яблоко</li>
+        <li>Груша</li>
+        <li>Банан</li>
+      </ul>
+
+      <h3>Нумерованный список (<code>&lt;ol&gt;</code>)</h3>
+      <pre><code>&lt;ol&gt;
+  &lt;li&gt;Открыть Блокнот&lt;/li&gt;
+  &lt;li&gt;Написать код&lt;/li&gt;
+  &lt;li&gt;Сохранить файл&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+      <p>Результат:</p>
+      <ol>
+        <li>Открыть Блокнот</li>
+        <li>Написать код</li>
+        <li>Сохранить файл</li>
+      </ol>
+    </section>
+
+    <!-- ===== 5. Таблицы ===== -->
+    <section id="table">
+      <h2>Как сделать таблицу</h2>
+      <p>Таблица строится из строк и ячеек. Запомни четыре главных тега:</p>
+      <ul>
+        <li><code>&lt;table&gt;</code> — вся таблица;</li>
+        <li><code>&lt;tr&gt;</code> — строка (table row);</li>
+        <li><code>&lt;th&gt;</code> — ячейка-заголовок (table header);</li>
+        <li><code>&lt;td&gt;</code> — обычная ячейка (table data).</li>
+      </ul>
+      <pre><code>&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Предмет&lt;/th&gt;
+    &lt;th&gt;Оценка&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Информатика&lt;/td&gt;
+    &lt;td&gt;5&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+      <p>А вот пример готовой таблицы — расписание на неделю для изучения HTML:</p>
+      <table>
+        <caption>Пример: расписание занятий</caption>
+        <thead>
+          <tr><th>День</th><th>Тема</th><th>Время</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Понедельник</td><td>Структура страницы</td><td>30 минут</td></tr>
+          <tr><td>Среда</td><td>Текст, ссылки, картинки</td><td>40 минут</td></tr>
+          <tr><td>Пятница</td><td>Списки и таблицы</td><td>40 минут</td></tr>
+          <tr><td>Воскресенье</td><td>Мини-проект «Моя страница»</td><td>1 час</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===== 6. Формы ===== -->
+    <section id="forms">
+      <h2>Формы</h2>
+      <p>Формы нужны, чтобы посетитель мог что-то ввести или выбрать: имя, e-mail, сообщение. Попробуй заполнить форму ниже:</p>
+
+      <form id="demoForm">
+        <label for="name">Как тебя зовут?</label>
+        <input type="text" id="name" placeholder="Например, Алия" required>
+
+        <label for="mail">E-mail</label>
+        <input type="email" id="mail" placeholder="name@example.com">
+
+        <label for="level">Твой уровень</label>
+        <select id="level">
+          <option>Новичок</option>
+          <option>Немного знаю</option>
+          <option>Уже делал сайты</option>
+        </select>
+
+        <label>
+          <input type="checkbox" id="like"> Мне нравится учиться
+        </label>
+
+        <label for="msg">Сообщение</label>
+        <textarea id="msg" rows="3" placeholder="Напиши, что хочешь создать..."></textarea>
+
+        <button type="submit">Отправить</button>
+      </form>
+      <p id="formResult" style="font-weight:600; color:#15803d;"></p>
+    </section>
+
+    <!-- ===== 7. Практика ===== -->
+    <section id="practice">
+      <h2>Попробуй сам</h2>
+      <p>Измени код слева — результат справа обновится сразу. Ничего не сломаешь! 😉</p>
+      <div class="editor">
+        <textarea id="code" spellcheck="false">&lt;h1&gt;Привет!&lt;/h1&gt;
+&lt;p&gt;Меня зовут &lt;strong&gt;...&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Мне ... лет&lt;/li&gt;
+  &lt;li&gt;Я люблю ...&lt;/li&gt;
+&lt;/ul&gt;</textarea>
+        <iframe id="preview" title="Результат"></iframe>
+      </div>
+      <button type="button" id="resetBtn">Сбросить</button>
+    </section>
+
+    <!-- ===== 8. План обучения ===== -->
+    <section id="plan">
+      <h2>План обучения на 4 недели</h2>
+      <table>
+        <caption>Что и когда учить</caption>
+        <thead>
+          <tr><th>Неделя</th><th>Что изучаем</th><th>Результат</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Скелет страницы, заголовки, абзацы</td><td>Страница «Обо мне»</td></tr>
+          <tr><td>2</td><td>Ссылки, картинки, списки</td><td>Страница «Мои увлечения»</td></tr>
+          <tr><td>3</td><td>Таблицы и формы</td><td>Расписание уроков и форма обратной связи</td></tr>
+          <tr><td>4</td><td>Знакомство с CSS (цвета и шрифты)</td><td>Красивый мини-сайт из 2–3 страниц</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Полезные ресурсы</h3>
+      <ul>
+        <li><a href="https://developer.mozilla.org/ru/docs/Learn/HTML" target="_blank" rel="noopener">MDN: учебник по HTML</a> — подробный бесплатный справочник;</li>
+        <li><a href="https://htmlacademy.ru" target="_blank" rel="noopener">HTML Academy</a> — интерактивные тренажёры;</li>
+        <li><a href="https://www.w3schools.com/html/" target="_blank" rel="noopener">W3Schools</a> — примеры с кнопкой «Try it Yourself».</li>
+      </ul>
+
+      <div class="tip">
+        ✅ <strong>Главное правило:</strong> не просто читай, а каждый день пиши хотя бы по несколько строк кода сам.
+      </div>
+    </section>
+
+    <!-- ===== 9. Мини-тест ===== -->
+    <section id="quiz">
+      <h2>Проверь себя</h2>
+      <form id="quizForm">
+        <p><strong>1. Каким тегом создаётся ссылка?</strong></p>
+        <label><input type="radio" name="q1" value="a"> &lt;img&gt;</label>
+        <label><input type="radio" name="q1" value="b"> &lt;a&gt;</label>
+        <label><input type="radio" name="q1" value="c"> &lt;p&gt;</label>
+
+        <p><strong>2. Какой тег задаёт главный заголовок?</strong></p>
+        <label><input type="radio" name="q2" value="a"> &lt;h1&gt;</label>
+        <label><input type="radio" name="q2" value="b"> &lt;h6&gt;</label>
+        <label><input type="radio" name="q2" value="c"> &lt;title&gt;</label>
+
+        <p><strong>3. Какой тег обозначает ячейку таблицы?</strong></p>
+        <label><input type="radio" name="q3" value="a"> &lt;td&gt;</label>
+        <label><input type="radio" name="q3" value="b"> &lt;ul&gt;</label>
+        <label><input type="radio" name="q3" value="c"> &lt;br&gt;</label>
+
+        <button type="submit">Проверить</button>
+      </form>
+      <p id="quizResult" style="font-weight:600;"></p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 «Учим HTML». Учебный проект школьника. Удачи в обучении! 🚀</p>
+  </footer>
+
+  <script>
+    // --- Форма: показываем ответ без отправки на сервер ---
+    document.getElementById('demoForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('name').value;
+      document.getElementById('formResult').textContent =
+        'Спасибо, ' + name + '! Форма работает (данные никуда не отправляются).';
+    });
+
+    // --- Мини-редактор HTML ---
+    var code = document.getElementById('code');
+    var preview = document.getElementById('preview');
+    var startCode = code.value;
+
+    function updatePreview() {
+      preview.srcdoc = code.value;
+    }
+    code.addEventListener('input', updatePreview);
+    document.getElementById('resetBtn').addEventListener('click', function () {
+      code.value = startCode;
+      updatePreview();
+    });
+    updatePreview();
+
+    // --- Тест ---
+    document.getElementById('quizForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var answers = { q1: 'b', q2: 'a', q3: 'a' };
+      var score = 0;
+      for (var q in answers) {
+        var chosen = document.querySelector('input[name="' + q + '"]:checked');
+        if (chosen && chosen.value === answers[q]) score++;
+      }
+      var result = document.getElementById('quizResult');
+      result.textContent = 'Правильных ответов: ' + score + ' из 3. ' +
+        (score === 3 ? 'Отлично! 🎉' : 'Попробуй ещё раз и перечитай разделы выше.');
+      result.style.color = score === 3 ? '#15803d' : '#b45309';
+    });
+  </script>
+</body>
+</html>
