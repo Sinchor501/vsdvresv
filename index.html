@@ -112,26 +112,7 @@
     tr:nth-child(even) td { background: #f3f6fd; }
     tr:hover td { background: #e3ebfb; }
 
-    /* ---------- Форма ---------- */
-    form label { display: block; margin: 12px 0 4px; font-weight: 600; }
-    input[type="text"], input[type="email"], select, textarea {
-      width: 100%;
-      padding: 9px;
-      border: 1px solid #b8c4de;
-      border-radius: 6px;
-      font: inherit;
-    }
-    button {
-      background: var(--main);
-      color: #fff;
-      border: none;
-      padding: 10px 22px;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      margin-top: 12px;
-    }
-    button:hover { background: var(--main-dark); }
+   
 
     /* ---------- Мини-редактор ---------- */
     .editor { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -158,9 +139,7 @@
     <a href="#tags">Основные теги</a>
     <a href="#lists">Списки</a>
     <a href="#table">Таблицы</a>
-    <a href="#forms">Формы</a>
     <a href="#practice">Практика</a>
-    <a href="#plan">План обучения</a>
     <a href="#quiz">Тест</a>
   </nav>
 
@@ -337,37 +316,7 @@
       </table>
     </section>
 
-    <!-- ===== 6. Формы ===== -->
-    <section id="forms">
-      <h2>Формы</h2>
-      <p>Формы нужны, чтобы посетитель мог что-то ввести или выбрать: имя, e-mail, сообщение. Попробуй заполнить форму ниже:</p>
-
-      <form id="demoForm">
-        <label for="name">Как тебя зовут?</label>
-        <input type="text" id="name" placeholder="Например, Алия" required>
-
-        <label for="mail">E-mail</label>
-        <input type="email" id="mail" placeholder="name@example.com">
-
-        <label for="level">Твой уровень</label>
-        <select id="level">
-          <option>Новичок</option>
-          <option>Немного знаю</option>
-          <option>Уже делал сайты</option>
-        </select>
-
-        <label>
-          <input type="checkbox" id="like"> Мне нравится учиться
-        </label>
-
-        <label for="msg">Сообщение</label>
-        <textarea id="msg" rows="3" placeholder="Напиши, что хочешь создать..."></textarea>
-
-        <button type="submit">Отправить</button>
-      </form>
-      <p id="formResult" style="font-weight:600; color:#15803d;"></p>
-    </section>
-
+  
     <!-- ===== 7. Практика ===== -->
     <section id="practice">
       <h2>Попробуй сам</h2>
@@ -384,34 +333,7 @@
       <button type="button" id="resetBtn">Сбросить</button>
     </section>
 
-    <!-- ===== 8. План обучения ===== -->
-    <section id="plan">
-      <h2>План обучения на 4 недели</h2>
-      <table>
-        <caption>Что и когда учить</caption>
-        <thead>
-          <tr><th>Неделя</th><th>Что изучаем</th><th>Результат</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td>Скелет страницы, заголовки, абзацы</td><td>Страница «Обо мне»</td></tr>
-          <tr><td>2</td><td>Ссылки, картинки, списки</td><td>Страница «Мои увлечения»</td></tr>
-          <tr><td>3</td><td>Таблицы и формы</td><td>Расписание уроков и форма обратной связи</td></tr>
-          <tr><td>4</td><td>Знакомство с CSS (цвета и шрифты)</td><td>Красивый мини-сайт из 2–3 страниц</td></tr>
-        </tbody>
-      </table>
-
-      <h3>Полезные ресурсы</h3>
-      <ul>
-        <li><a href="https://developer.mozilla.org/ru/docs/Learn/HTML" target="_blank" rel="noopener">MDN: учебник по HTML</a> — подробный бесплатный справочник;</li>
-        <li><a href="https://htmlacademy.ru" target="_blank" rel="noopener">HTML Academy</a> — интерактивные тренажёры;</li>
-        <li><a href="https://www.w3schools.com/html/" target="_blank" rel="noopener">W3Schools</a> — примеры с кнопкой «Try it Yourself».</li>
-      </ul>
-
-      <div class="tip">
-        ✅ <strong>Главное правило:</strong> не просто читай, а каждый день пиши хотя бы по несколько строк кода сам.
-      </div>
-    </section>
-
+   
     <!-- ===== 9. Мини-тест ===== -->
     <section id="quiz">
       <h2>Проверь себя</h2>
